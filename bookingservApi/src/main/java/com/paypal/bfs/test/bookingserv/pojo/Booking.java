@@ -40,19 +40,17 @@ public class Booking {
     @JsonProperty("date_of_birth")
     private String dateOfBirth;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ", timezone = "UTC")
     @JsonProperty("checkin_datetime")
-    private Date checkinDatetime;
+    private String checkinDatetime;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ", timezone = "UTC")
     @JsonProperty("checkout_datetime")
-    private Date checkoutDatetime;
+    private String checkoutDatetime;
 
     @JsonProperty("total_price")
     private Double totalPrice;
 
     @JsonProperty("deposit")
-    private Object deposit;
+    private Double deposit;
 
     @JsonProperty("address")
     private Address address;
@@ -89,19 +87,19 @@ public class Booking {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Date getCheckinDatetime() {
+    public String getCheckinDatetime() {
         return checkinDatetime;
     }
 
-    public void setCheckinDatetime(Date checkinDatetime) {
+    public void setCheckinDatetime(String checkinDatetime) {
         this.checkinDatetime = checkinDatetime;
     }
 
-    public Date getCheckoutDatetime() {
+    public String getCheckoutDatetime() {
         return checkoutDatetime;
     }
 
-    public void setCheckoutDatetime(Date checkoutDatetime) {
+    public void setCheckoutDatetime(String checkoutDatetime) {
         this.checkoutDatetime = checkoutDatetime;
     }
 
@@ -113,11 +111,11 @@ public class Booking {
         this.totalPrice = totalPrice;
     }
 
-    public Object getDeposit() {
+    public Double getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(Object deposit) {
+    public void setDeposit(Double deposit) {
         this.deposit = deposit;
     }
 

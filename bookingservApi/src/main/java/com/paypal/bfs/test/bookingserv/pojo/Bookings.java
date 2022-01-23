@@ -9,4 +9,12 @@ public class Bookings {
 
     @JsonProperty("items")
     private Booking[] items;
+
+    public Booking[] getItems() {
+        return items;
+    }
+
+    public void setItems(Booking[] items) {
+        this.items = items;
+    }
 }
