@@ -1,2 +1,7 @@
-com\paypal\bfs\test\bookingserv\impl\BookingResourceImpl.class
 com\paypal\bfs\test\bookingserv\BookingServApplication.class
+com\paypal\bfs\test\bookingserv\entity\BookingEntity.class
+com\paypal\bfs\test\bookingserv\impl\BookingResourceImpl.class
+com\paypal\bfs\test\bookingserv\repository\BookingRepository.class
+com\paypal\bfs\test\bookingserv\exceptions\BadRequestException.class
+com\paypal\bfs\test\bookingserv\exceptions\ServiceException.class
+com\paypal\bfs\test\bookingserv\service\BookingService.class
