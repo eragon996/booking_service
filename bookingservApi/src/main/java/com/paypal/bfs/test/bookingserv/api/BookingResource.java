@@ -1,6 +1,7 @@
 package com.paypal.bfs.test.bookingserv.api;
 
-import com.paypal.bfs.test.bookingserv.api.model.Booking;
+import com.paypal.bfs.test.bookingserv.pojo.Booking;
+import com.paypal.bfs.test.bookingserv.pojo.Bookings;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,11 @@ public interface BookingResource {
      */
     @RequestMapping(value = "/v1/bfs/booking", method = RequestMethod.POST)
     ResponseEntity<Booking> create(@RequestBody Booking booking);
+
+    @RequestMapping(value = "/v1/bfs/booking", method = RequestMethod.GET)
+    ResponseEntity<Bookings> getAllBookings();
+
+
 
     // ----------------------------------------------------------
     // TODO - add a new operation for Get All the bookings resource.

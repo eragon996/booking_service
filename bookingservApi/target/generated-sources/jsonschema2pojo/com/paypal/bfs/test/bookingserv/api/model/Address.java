@@ -15,71 +15,60 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Booking resource
+ * Booking Address
  * <p>
- * Booking resource object
+ * Booking Address
  * 
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "id",
-    "first_name",
-    "last_name",
-    "date_of_birth",
-    "checkin_datetime",
-    "checkout_datetime",
+    "line1",
+    "line2",
+    "city",
+    "state",
+    "zip_code",
     "total_price",
-    "deposit",
-    "address"
+    "deposit"
 })
-public class Booking {
+public class Address {
 
     /**
-     * Booking id
+     * line1
      * 
      */
-    @JsonProperty("id")
-    @JsonPropertyDescription("Booking id")
-    private Integer id;
+    @JsonProperty("line1")
+    @JsonPropertyDescription("line1")
+    private String line1;
     /**
-     * First name
-     * (Required)
+     * line2
      * 
      */
-    @JsonProperty("first_name")
-    @JsonPropertyDescription("First name")
-    private String firstName;
-    /**
-     * Last name
-     * (Required)
-     * 
-     */
-    @JsonProperty("last_name")
-    @JsonPropertyDescription("Last name")
-    private String lastName;
+    @JsonProperty("line2")
+    @JsonPropertyDescription("line2")
+    private String line2;
     /**
      * Date of Birth
      * 
      */
-    @JsonProperty("date_of_birth")
+    @JsonProperty("city")
     @JsonPropertyDescription("Date of Birth")
-    private String dateOfBirth;
+    private String city;
     /**
      * Check-in datetime
      * 
      */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ", timezone = "UTC")
-    @JsonProperty("checkin_datetime")
+    @JsonProperty("state")
     @JsonPropertyDescription("Check-in datetime")
-    private Date checkinDatetime;
+    private Date state;
     /**
      * Check-out datetime
      * 
      */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ", timezone = "UTC")
-    @JsonProperty("checkout_datetime")
+    @JsonProperty("zip_code")
     @JsonPropertyDescription("Check-out datetime")
-    private Date checkoutDatetime;
+    private Date zipCode;
     /**
      * Total price
      * 
@@ -94,121 +83,97 @@ public class Booking {
     @JsonProperty("deposit")
     @JsonPropertyDescription("Deposit")
     private Object deposit;
-    @JsonProperty("address")
-    private Object address;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
-     * Booking id
+     * line1
      * 
      */
-    @JsonProperty("id")
-    public Integer getId() {
-        return id;
+    @JsonProperty("line1")
+    public String getLine1() {
+        return line1;
     }
 
     /**
-     * Booking id
+     * line1
      * 
      */
-    @JsonProperty("id")
-    public void setId(Integer id) {
-        this.id = id;
+    @JsonProperty("line1")
+    public void setLine1(String line1) {
+        this.line1 = line1;
     }
 
     /**
-     * First name
-     * (Required)
+     * line2
      * 
      */
-    @JsonProperty("first_name")
-    public String getFirstName() {
-        return firstName;
+    @JsonProperty("line2")
+    public String getLine2() {
+        return line2;
     }
 
     /**
-     * First name
-     * (Required)
+     * line2
      * 
      */
-    @JsonProperty("first_name")
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * Last name
-     * (Required)
-     * 
-     */
-    @JsonProperty("last_name")
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * Last name
-     * (Required)
-     * 
-     */
-    @JsonProperty("last_name")
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    @JsonProperty("line2")
+    public void setLine2(String line2) {
+        this.line2 = line2;
     }
 
     /**
      * Date of Birth
      * 
      */
-    @JsonProperty("date_of_birth")
-    public String getDateOfBirth() {
-        return dateOfBirth;
+    @JsonProperty("city")
+    public String getCity() {
+        return city;
     }
 
     /**
      * Date of Birth
      * 
      */
-    @JsonProperty("date_of_birth")
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    @JsonProperty("city")
+    public void setCity(String city) {
+        this.city = city;
     }
 
     /**
      * Check-in datetime
      * 
      */
-    @JsonProperty("checkin_datetime")
-    public Date getCheckinDatetime() {
-        return checkinDatetime;
+    @JsonProperty("state")
+    public Date getState() {
+        return state;
     }
 
     /**
      * Check-in datetime
      * 
      */
-    @JsonProperty("checkin_datetime")
-    public void setCheckinDatetime(Date checkinDatetime) {
-        this.checkinDatetime = checkinDatetime;
+    @JsonProperty("state")
+    public void setState(Date state) {
+        this.state = state;
     }
 
     /**
      * Check-out datetime
      * 
      */
-    @JsonProperty("checkout_datetime")
-    public Date getCheckoutDatetime() {
-        return checkoutDatetime;
+    @JsonProperty("zip_code")
+    public Date getZipCode() {
+        return zipCode;
     }
 
     /**
      * Check-out datetime
      * 
      */
-    @JsonProperty("checkout_datetime")
-    public void setCheckoutDatetime(Date checkoutDatetime) {
-        this.checkoutDatetime = checkoutDatetime;
+    @JsonProperty("zip_code")
+    public void setZipCode(Date zipCode) {
+        this.zipCode = zipCode;
     }
 
     /**
@@ -247,16 +212,6 @@ public class Booking {
         this.deposit = deposit;
     }
 
-    @JsonProperty("address")
-    public Object getAddress() {
-        return address;
-    }
-
-    @JsonProperty("address")
-    public void setAddress(Object address) {
-        this.address = address;
-    }
-
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -270,30 +225,26 @@ public class Booking {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Booking.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("id");
+        sb.append(Address.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("line1");
         sb.append('=');
-        sb.append(((this.id == null)?"<null>":this.id));
+        sb.append(((this.line1 == null)?"<null>":this.line1));
         sb.append(',');
-        sb.append("firstName");
+        sb.append("line2");
         sb.append('=');
-        sb.append(((this.firstName == null)?"<null>":this.firstName));
+        sb.append(((this.line2 == null)?"<null>":this.line2));
         sb.append(',');
-        sb.append("lastName");
+        sb.append("city");
         sb.append('=');
-        sb.append(((this.lastName == null)?"<null>":this.lastName));
+        sb.append(((this.city == null)?"<null>":this.city));
         sb.append(',');
-        sb.append("dateOfBirth");
+        sb.append("state");
         sb.append('=');
-        sb.append(((this.dateOfBirth == null)?"<null>":this.dateOfBirth));
+        sb.append(((this.state == null)?"<null>":this.state));
         sb.append(',');
-        sb.append("checkinDatetime");
+        sb.append("zipCode");
         sb.append('=');
-        sb.append(((this.checkinDatetime == null)?"<null>":this.checkinDatetime));
-        sb.append(',');
-        sb.append("checkoutDatetime");
-        sb.append('=');
-        sb.append(((this.checkoutDatetime == null)?"<null>":this.checkoutDatetime));
+        sb.append(((this.zipCode == null)?"<null>":this.zipCode));
         sb.append(',');
         sb.append("totalPrice");
         sb.append('=');
@@ -302,10 +253,6 @@ public class Booking {
         sb.append("deposit");
         sb.append('=');
         sb.append(((this.deposit == null)?"<null>":this.deposit));
-        sb.append(',');
-        sb.append("address");
-        sb.append('=');
-        sb.append(((this.address == null)?"<null>":this.address));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');
